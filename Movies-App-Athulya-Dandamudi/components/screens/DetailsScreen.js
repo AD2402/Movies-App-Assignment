@@ -42,13 +42,9 @@ const Details = (props) => {
                 <Box margin={10}>
                     <VStack>
                         <Center>
-                            <Text mb={10} fontSize={25} fontWeight="bold">
-                                {info.original_title}
-                            </Text>
+                            <Text mb={10} fontSize={25} fontWeight="bold"> {info.original_title} </Text>
                             <Image source={{ uri: imagePath }} alt="Poster" size="2xl" />
-                            <Text mt={10} mb={10}>
-                                {info.overview}
-                            </Text>
+                            <Text mt={10} mb={10}> {info.overview} </Text>
                         </Center>
                         <HStack>
                             <Text>Popularity: {info.popularity}</Text>
