@@ -32,12 +32,14 @@ const AppStack = () => {
                 component={Home}
                 options={{
                     headerStyle: {
-                        backgroundColor: "#2c3e50",
+                        backgroundColor: "#2c3e50",  
+                        
                     },
+                    
                     headerTintColor: "#fff",
                     headerTitleStyle: {
                         fontWeight: "bold",
-                        fontSize: 20,
+                        fontSize: 25,
                     },
                 }}
             />

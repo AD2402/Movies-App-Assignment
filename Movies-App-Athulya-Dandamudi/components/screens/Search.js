@@ -40,7 +40,7 @@ const Search = () => {
     return (
         <View >
             <Form value={value} type={type} handleValueChange={handleValueChange} handleTypeChange={handleTypeChange} onSubmit={onSubmit} />
-            {display ? <SearchList data={data} sentType={sentType} /> : <Text>Please Initiate a Search</Text>}
+            {display ? <SearchList data={data} sentType={sentType} /> : <Text mt={150} ml={100} fontSize={20}>Please Initiate a Search</Text>}
         </View>
     )
 }

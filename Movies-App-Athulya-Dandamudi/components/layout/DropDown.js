@@ -7,7 +7,7 @@ const DropDown = (props) => {
         <View>
         <Center>
 
-                <Box maxW="300">
+                <Box maxW="300" mt={5} mb={6}>
                     <Select selectedValue={sort} minWidth="200" _selectedItem={{
                         bg: "teal.600",
                         endIcon: <CheckIcon size="5" />
@@ -23,5 +23,5 @@ const DropDown = (props) => {
             </View>
     )
 }
-
+ 
 export default DropDown;
