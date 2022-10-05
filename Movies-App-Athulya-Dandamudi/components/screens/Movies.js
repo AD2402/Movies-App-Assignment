@@ -28,7 +28,6 @@ const Movies = () => {
         <View >
             <DropDown sort={sort} handleSortChange={handleSortChange} />
             <List data={data} />
-
         </View>
     )
 }

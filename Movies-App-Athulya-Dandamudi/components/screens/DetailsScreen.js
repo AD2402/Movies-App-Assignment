@@ -1,54 +1,67 @@
 import { useRoute } from "@react-navigation/native";
-import { VStack, Text, View, Box, Image, HStack, Divider } from "native-base";
+import { VStack, Text, View, Box, Image, HStack, Divider, Center } from "native-base";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import { IMAGE_URL } from "../../services/api_config";
 import { API_KEY } from "../../services/api_config";
+import { BASE_URL } from "../../services/api_config";
+import Loading from "../layout/Loading";
 
-const DetailsScreen = (props) => {
-    const route = useRoute();
-    const { id, type } = route.params;
-    const [title, setTitle] = useState("");
+const Details = (props) => {
+    const { id, type } = props.route.params;
+    const [info, setInfo] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
-    const [poster, setPoster] = useState();
-    const [overview, setOverview] = useState("");
-    const [popularity, setPopularity] = useState("");
+    const getDetails = async () => {
+        const url = `${BASE_URL}/${type}/${id}?api_key=${API_KEY}&language=en-US&page=1`;
 
-    const [release, setRelease] = useState("");
+        try {
+            const response = await axios.get(url).catch(console.log);
+            setInfo(response.data);
+            setIsLoading(true);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     useEffect(() => {
-        async function fetchData() {
-
-            const response = await axios.get(`https://api.themoviedb.org/3/${type}/${id}?api_key=${API_KEY}`);
-            console.log(response.data);
-            setTitle(response.data.original_title);
-            setPoster(response.data.poster_path);
-            setOverview(response.data.overview);
-            setPopularity(response.data.popularity);
-            setRelease(response.data.release_date);
-        };
-        fetchData();
-
+        getDetails();
     }, []);
 
+    let imagePath = `${IMAGE_URL}${info.poster_path}`;
 
+    let release_date = "";
+    if (type == "movie") {
+        release_date = info.release_date;
+    } else {
+        release_date = info.first_air_date;
+    }
     return (
-        <View>
-            <Box><VStack>
-
-                <Text >{title}</Text>
-              {poster ?  <Image alt="Poster" key={poster} source={{ uri: `https://image.tmdb.org/t/p/w500/${poster}` }} size='xl' />
-                : <></>} 
-                <Text>{overview}</Text>
-                <HStack>
-                    <Text >Popularity: {popularity}</Text>
-                    <Divider orientation="vertical" my={2} />
-                    <Text >Release Date: {release}</Text>
-                </HStack>
-
-
-            </VStack></Box>
-        </View>
-    )
+        <>
+            {isLoading ? (
+                <Box margin={10}>
+                    <VStack>
+                        <Center>
+                            <Text mb={10} fontSize={25} fontWeight="bold">
+                                {info.original_title}
+                            </Text>
+                            <Image source={{ uri: imagePath }} alt="Poster" size="2xl" />
+                            <Text mt={10} mb={10}>
+                                {info.overview}
+                            </Text>
+                        </Center>
+                        <HStack>
+                            <Text>Popularity: {info.popularity}</Text>
+                            <Text> | </Text>
+                            <Text>Release Date: {release_date}</Text>
+                        </HStack>
+                    </VStack>
+                </Box>
+            ) : (
+                <Loading />
+            )}
+        </>
+    );
 };
 
-export default DetailsScreen;
+export default Details;

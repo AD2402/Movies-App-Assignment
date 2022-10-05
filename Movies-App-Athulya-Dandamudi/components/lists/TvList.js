@@ -8,7 +8,8 @@ const TvList = (props) => {
 <FlatList
             data={dataTV}
             renderItem={({ item }) => (
-                <Card id={item.id}
+                <Card 
+                id={item.id}
                 title={item.original_name}
                 image={item.poster_path}
                 popularity={item.popularity}

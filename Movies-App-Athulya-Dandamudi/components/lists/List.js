@@ -8,12 +8,12 @@ const List = (props) => {
 <FlatList
             data={data}
             renderItem={({ item }) => (
-                <Card id={item.id}
+                <Card 
+                id={item.id}
                 title={item.original_title}
                 image={item.poster_path}
                 popularity={item.popularity}
-                release={item.release_date}
-                
+                release={item.release_date} 
                 />
             )} 
             keyExtractor={item => item.id}/>
