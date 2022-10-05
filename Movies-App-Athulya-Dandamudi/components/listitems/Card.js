@@ -1,7 +1,7 @@
 import { Box, Button, Center, Divider, Heading, Image, Text, VStack, HStack } from "native-base";
 import { useNavigation } from '@react-navigation/native';
 
-const MovieCard = props => {
+const Card = props => {
     const { id, title, image, popularity, release } = props;
     const navigation = useNavigation();
     const type = 'movie';
@@ -34,4 +34,4 @@ const MovieCard = props => {
     );
 };
 
-export default MovieCard;
+export default Card;

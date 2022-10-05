@@ -1,6 +1,5 @@
 import { FlatList } from "native-base";
-import MovieCard from "../listitems/MovieCard";
-import TvCard from "../listitems/TvCard";
+import Card from "../listitems/Card";
 
 
 const SearchList = (props) => {
@@ -12,23 +11,23 @@ const SearchList = (props) => {
             renderItem={({ item }) => (
 
                 sentType == 'multi' ?
-                    (item.media_type == 'movie' ? <MovieCard id={item.id}
+                    (item.media_type == 'movie' ? <Card id={item.id}
                         title={item.original_title}
                         image={item.poster_path}
                         popularity={item.popularity}
                         release={item.release_date} /> :
-                        <TvCard id={item.id}
+                        <Card id={item.id}
                             title={item.original_name}
                             image={item.poster_path}
                             popularity={item.popularity}
                             release={item.release_date} />
                     )
-                    : (sentType == 'movie' ? <MovieCard id={item.id}
+                    : (sentType == 'movie' ? <Card id={item.id}
                         title={item.original_title}
                         image={item.poster_path}
                         popularity={item.popularity}
                         release={item.release_date} /> : 
-                        <TvCard id={item.id}
+                        <Card id={item.id}
                             title={item.original_name}
                             image={item.poster_path}
                             popularity={item.popularity}
