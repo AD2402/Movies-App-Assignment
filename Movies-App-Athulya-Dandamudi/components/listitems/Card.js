@@ -25,7 +25,6 @@ const Card = props => {
                             })
                         }}> More Details</Button>
                     </VStack>
-
             </HStack>
             </Box>
             <Box borderBottomColor='rgba(158, 150, 150, .5)'  borderBottomWidth='1'></Box>
