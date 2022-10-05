@@ -1,6 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-// import IndexScreen from '../screens/IndexScreen';
 import Movies from '../screens/Movies';
 import Search from '../screens/Search';
 import Tv from '../screens/Tv'

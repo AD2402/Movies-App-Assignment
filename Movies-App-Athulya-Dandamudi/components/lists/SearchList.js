@@ -1,6 +1,6 @@
 import { FlatList } from "native-base";
 import Card from "../listitems/Card";
-
+import CardTV from "../listitems/CardTV";
 
 const SearchList = (props) => {
     const { data, sentType } = props;
@@ -17,7 +17,7 @@ const SearchList = (props) => {
                         image={item.poster_path}
                         popularity={item.popularity}
                         release={item.release_date} /> :
-                        <Card 
+                        <CardTV 
                             id={item.id}
                             title={item.original_name}
                             image={item.poster_path}
@@ -30,7 +30,7 @@ const SearchList = (props) => {
                         image={item.poster_path}
                         popularity={item.popularity}
                         release={item.release_date} /> : 
-                        <Card 
+                        <CardTV
                             id={item.id}
                             title={item.original_name}
                             image={item.poster_path}

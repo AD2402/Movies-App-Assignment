@@ -1,6 +1,5 @@
-import Card from "../listitems/Card";
+import CardTV from "../listitems/CardTV";
 import { FlatList } from "native-base";
-
 
 const TvList = (props) => {
     const { dataTV } = props;
@@ -8,15 +7,15 @@ const TvList = (props) => {
 <FlatList
             data={dataTV}
             renderItem={({ item }) => (
-                <Card 
+                <CardTV 
                 id={item.id}
                 title={item.original_name}
                 image={item.poster_path}
                 popularity={item.popularity}
-                release={item.release_date}
-                
+                release={item.release_date}     
                 />
-            )} />
+            )} 
+            keyExtractor={item => item.id}/>
   )
 };
 
