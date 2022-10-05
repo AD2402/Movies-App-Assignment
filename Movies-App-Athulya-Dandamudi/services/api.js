@@ -1,12 +1,11 @@
-import { API_KEY, MOVIE_BASE_URL} from './api_config';
+import { API_KEY, BASE_URL} from './api_config';
 
 export const getMoviesData = async (sort) => {
-    const url = MOVIE_BASE_URL;
+    const url = BASE_URL;
 
     try {
         const params = {
             q: movie, 
-            app_id: APP_ID,
             api_key: API_KEY,
             field: ['uri', 'image', 'label', 'source']
         };

@@ -1,4 +1,4 @@
-import MovieCard from "../listitems/MovieCard";
+import Card from "../listitems/Card";
 import { FlatList } from "native-base";
 
 
@@ -8,7 +8,7 @@ const List = (props) => {
 <FlatList
             data={data}
             renderItem={({ item }) => (
-                <MovieCard id={item.id}
+                <Card id={item.id}
                 title={item.original_title}
                 image={item.poster_path}
                 popularity={item.popularity}
