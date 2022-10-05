@@ -6,6 +6,7 @@ export const getMoviesData = async (sort) => {
     try {
         const params = {
             q: movie, 
+            app_id: APP_ID,
             api_key: API_KEY,
             field: ['uri', 'image', 'label', 'source']
         };
