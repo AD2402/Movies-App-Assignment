@@ -2,7 +2,6 @@ import { Text, View, Center, Box, Select, CheckIcon } from "native-base";
 import React, { useState, useEffect } from "react";
 import TvDropDown from "../layout/TvDropDown";
 import TvList from "../lists/TvList";
-// import { getMoviesData } from "../../services/api";
 import axios from "axios";
 import { API_KEY } from "../../services/api_config";
 

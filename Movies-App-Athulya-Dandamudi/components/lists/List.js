@@ -1,7 +1,6 @@
 import Card from "../listitems/Card";
 import { FlatList } from "native-base";
 
-
 const List = (props) => {
     const { data } = props;
  return (
